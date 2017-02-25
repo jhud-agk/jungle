@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+
+
+    <!-- CUSTOM STYLES -->
+    <style>
+    html, body, .wrapper{height: 100%; width: 100%;}
+
+.login-page, .signup-page {
+background: #00BCD4;
+}
+
+.logo{
+  text-align: center;
+}
+
+.flex-container{
+padding-left: 0;
+overflow-x: hidden;
+display: flex;
+justify-content: center;
+align-content: center;
+align-items: center;
+}
+
+a, a:hover{
+  outline: 0;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.align-right{
+  text-align: right;
+}
+/*.login-box, .signup-box{
+  width: 25%;
+}*/
+.login-page .login-box .msg {
+  color: #555;
+  text-align: center;
+}
+.login-page .login-box{
+  font-size: 14px;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.login-page .login-box .logo {
+  margin-bottom: 20px;
+}
+.login-page .login-box .logo a,
+.signup-page .signup-box .logo a
+{
+font-size: 36px;
+display: block;
+width: 100%;
+text-align: center;
+color: #fff;
+}
+.login-page .login-box .logo small {
+display: block;
+width: 100%;
+text-align: center;
+color: #fff;
+margin-top: -5px;
+}
+
+.card {
+  background: #fff;
+  min-height: 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin-bottom: 30px;
+}
+.card .body {
+  font-size: 14px;
+  color: #555;
+  padding: 20px;
+}
+
+.input {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+.input-field {
+  position: relative;
+  display: block;
+  float: right;
+  padding: 0.8em;
+  width: 60%;
+  border: none;
+  border-radius: 0;
+  background: #f0f0f0;
+  color: #aaa;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-appearance: none; /* for box shadows to show on iOS */
+}
+
+.input-field:focus {
+  outline: none;
+}
+
+.input-label {
+  display: inline-block;
+  float: right;
+  padding: 0 1em;
+  width: 40%;
+  color: #6a7989;
+  font-weight: bold;
+  font-size: 70.25%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.input-label-content {
+  position: relative;
+  display: block;
+  padding: 1.6em 0;
+  width: 100%;
+}
+
+.graphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: none;
+}
+
+.icon {
+  color: #ddd;
+  font-size: 150%;
+}
+
+.input-switch {
+  overflow: hidden;
+}
+
+.input-field-switch {
+  margin-top: 5px;
+  padding: 15px 4px;
+  width: 100%;
+  background: transparent;
+  color: #595F6E;
+  font-size: 20px;
+}
+
+.input-label-switch {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0 0.25em;
+  width: 100%;
+  height: calc(100% - 1em);
+  text-align: left;
+  pointer-events: none;
+}
+
+.input-label-content-switch {
+  position: absolute;
+}
+
+a.btn.btn-facebook {
+  background: #385496;
+  color: #FFFFFF;
+}
+
+a.btn.btn-twitter {
+  background: #4a9eff;
+  color: #FFFFFF;
+
+}
+
+.social-login a.btn {
+  background-size: 100%;
+  font-size: 12px;
+  text-align: center;
+  color: #FFF;
+  text-shadow: 1px 1px 1px #333;
+  margin: 5px auto;
+  padding: 5px;
+}
+
+.input-label-switch::before,
+.input-label-switch::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 10px);
+  border-bottom: 1px solid #B9C1CA;
+}
+
+.input-label-switch::after {
+  margin-top: 2px;
+  border-bottom: 3px solid red;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.input-label-switch-color-1::after {
+  border-color: hsl(200, 100%, 50%);
+}
+
+.input-label-switch-color-2::after {
+  border-color: hsl(160, 100%, 50%);
+}
+
+.input-label-switch-color-3::after {
+  border-color: hsl(20, 100%, 50%);
+}
+
+.input-field-switch:focus + .input-label-switch::after,
+.input--filled .input-label-switch::after {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.input-field-switch:focus + .input-label-switch .input-label-content-switch,
+.input--filled .input-label-content-switch {
+  -webkit-animation: anim-1 0.3s forwards;
+  animation: anim-1 0.3s forwards;
+}
+
+/* Change the white to any color ;) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover
+{
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+@-webkit-keyframes anim-1 {
+  50% {
+      opacity: 0;
+      -webkit-transform: translate3d(1em, 0, 0);
+      transform: translate3d(1em, 0, 0);
+  }
+  51% {
+      opacity: 0;
+      -webkit-transform: translate3d(-1em, -40%, 0);
+      transform: translate3d(-1em, -40%, 0);
+  }
+  100% {
+      opacity: 1;
+      -webkit-transform: translate3d(0, -40%, 0);
+      transform: translate3d(0, -40%, 0);
+  }
+}
+
+@keyframes anim-1 {
+  50% {
+      opacity: 0;
+      -webkit-transform: translate3d(1em, 0, 0);
+      transform: translate3d(1em, 0, 0);
+  }
+  51% {
+      opacity: 0;
+      -webkit-transform: translate3d(-1em, -40%, 0);
+      transform: translate3d(-1em, -40%, 0);
+  }
+  100% {
+      opacity: 1;
+      -webkit-transform: translate3d(0, -40%, 0);
+      transform: translate3d(0, -40%, 0);
+  }
+}
+
+/*STYLING OF SWITCH FORMS*/
+.form-box{
+  width: 80%;
+  margin: 50px auto;
+}
+#switchForm {
+  width: 100%;
+  margin: 50px auto;
+  text-align: center;
+  position: relative;
+}
+#switchForm fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 0px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 10%;
+  margin-bottom: 40px;
+  /*stacking fieldsets above each other*/
+  position: absolute;
+}
+/*Hide all except first fieldset*/
+#switchForm fieldset:not(:first-of-type) {
+  display: none;
+}
+
+/*buttons*/
+#switchForm .action-button {
+  width: 100px;
+  background: #27AE60;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+#switchForm .action-button:hover, #switchForm .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+/*headings*/
+.fs-title {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #2C3E50;
+  margin-bottom: 10px;
+}
+.fs-subtitle {
+  font-weight: normal;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  padding-left: 0px;
+  /*CSS counters to number the steps*/
+  counter-reset: step;
+}
+#progressbar li {
+  list-style-type: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 9px;
+  width: 33.33%;
+  float: left;
+  position: relative;
+}
+#progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 20px;
+  line-height: 20px;
+  display: block;
+  font-size: 10px;
+  color: #333;
+  background: white;
+  border-radius: 3px;
+  margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: white;
+  position: absolute;
+  left: -50%;
+  top: 9px;
+  z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+  /*connector not needed before the first step*/
+  content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+  background: #27AE60;
+  color: white;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.others{
+  width: 40px;
+  border-color: #eee;
+}
+.radio input[type=radio], .others{
+  margin-left: 20px;
+}
+
+
+.current {
+-webkit-animation: moveToLeft .6s ease both;
+animation: moveToLeft .6s ease both;
+}
+
+.outClass {
+-webkit-animation: moveFromLeft .6s ease both;
+animation: moveFromLeft .6s ease both;
+}
+
+@-webkit-keyframes moveToLeft {
+from {-webkit-transform: translateX(100%); display: block; }
+to { -webkit-transform: translateX(0); display: block;}
+}
+@keyframes moveToLeft {
+from { -webkit-transform: translateX(100%); display: block;}
+to { -webkit-transform: translateX(0); transform: translateX(0);}
+}
+
+@-webkit-keyframes moveFromLeft {
+0% { }
+40% { -webkit-transform: rotateX(-15deg); transform: rotateX(-15deg); opacity: .8; -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out; }
+100% { -webkit-transform: scale(0.8) translateZ(-200px); transform: scale(0.8) translateZ(-200px); opacity:0; }
+}
+@keyframes moveFromLeft {
+0% { }
+40% { -webkit-transform: rotateX(-15deg); transform: rotateX(-15deg); opacity: .8; -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out; }
+100% { -webkit-transform: scale(0.8) translateZ(-200px); transform: scale(0.8) translateZ(-200px); opacity:0; }
+}
+
+    </style>
+
+  </head>
+  <body class="signup-page">
+    <div class="wrapper clearfix animsition">
+        <!-- multistep form -->
+      <div class="form-box">
+        <div class="logo">
+            <a href="index.html">
+               <img src="http://www.switch.ng/v4/img/logos/switch%202.svg" alt="Switch DEV" style="max-height: 100px">
+            </a>
+        </div>
+        <form id="switchForm" class="clearfix forms">
+          <!-- progressbar -->
+          <ul id="progressbar">
+            <li class="active">Account Setup</li>
+            <li>Social Profiles</li>
+            <li>Personal Details</li>
+          </ul>
+          <!-- fieldsets -->
+          <fieldset>
+            <h2 class="fs-title">Do you Dev?</h2>
+            <h3 class="fs-subtitle">Let's pass some gigs to you.</h3>
+            <span class="input input-switch">
+                <input class="input-field input-field-switch" type="text" name="fullname"/>
+                <label class="input-label input-label-switch input-label-switch-color-1" for="fullname">
+                    <span class="input-label-content input-label-content-switch">Full Name</span>
+                </label>
+            </span>
+            <span class="input input-switch">
+                <input class="input-field input-field-switch" type="text" name="email"/>
+                <label class="input-label input-label-switch input-label-switch-color-1" for="email">
+                    <span class="input-label-content input-label-content-switch">Enter email</span>
+                </label>
+            </span>
+            <span class="input input-switch">
+                <input class="input-field input-field-switch" type="text" name="phone"/>
+                <label class="input-label input-label-switch input-label-switch-color-1" for="phone">
+                    <span class="input-label-content input-label-content-switch">Phone Number</span>
+                </label>
+            </span>
+            <input type="button" name="next" class="next action-button" value="Next" />
+          </fieldset>
+          <fieldset>
+            <h2 class="fs-title">Skills</h2>
+            <h3 class="fs-subtitle">Tell us about your experience</h3>
+            <div class="skills">
+              <p class="text-left">Skill Level</p>
+              <div class="radio text-left">
+                <label>
+                  <input type="radio" name="skill"  value="Beginner">
+                  Beginner
+                </label>
+              </div>
+              <div class="radio text-left">
+                <label>
+                  <input type="radio" name="skill" value="Intermediate">
+                  Intermediate
+                </label>
+              </div>
+              <div class="radio text-left">
+                <label>
+                  <input type="radio" name="skill" value="Advance">
+                  Advance
+                </label>
+              </div>
+            </div>
+            <div class="hours-spent">
+              <p class="text-left">How many hours do you have in a week?</p>
+              <div class="radio text-left">
+                <label>
+                  <input type="radio" name="skill"  value="Beginner">
+                  10
+                </label>
+              </div>
+              <div class="radio text-left">
+                <label>
+                  <input type="radio" name="skill" value="Intermediate">
+                  15
+                </label>
+              </div>
+              <div class="radio text-left">
+                <label>
+                  <input type="radio" name="skill" value="Advance">
+                  20
+                </label>
+              </div>
+              <div class="radio text-left">
+                <label>
+                  <input type="text" name="skill" width="40" class="others">
+                  Others
+                </label>
+              </div>
+            </div>
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="button" name="next" class="next action-button" value="Next" />
+          </fieldset>
+          <fieldset>
+
+
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="submit" name="submit" class="submit action-button" value="Submit" />
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <!-- multistep form -->
+
+
+    <!-- Bootstrap JavaScript -->
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+    //var current_fs, next_fs, previous_fs; //fieldsets
+    //var left, opacity, scale; //fieldset properties which we will animate
+   // var animating; //flag to prevent quick multi-click glitches
+ let current_fs,
+ next_fs,
+ previous_fs,
+ left,
+ opacity,
+ scale,
+ animating;
+
+ const next = Array.from(document.querySelectorAll('.next'));
+ const previous = document.querySelectorAll('.previous');
+ console.log(next);
+ //arrays of element...
+ const progressbar = document.querySelectorAll('li');
+ const fieldsets = Array.from(document.getElementsByTagName('fieldset'));
+ //console.log(fieldsets);
+
+ function clickHandler () {
+ // if(animating){ return false;}
+  //animating = true;
+  current_fs = this.parentNode;
+ // console.log(current_fs);
+  next_fs = this.parentNode.nextElementSibling;
+  progressbar[fieldsets.indexOf(next_fs)].classList.add("active");
+  next_fs.classList.add("current");
+  next_fs.style.display = 'block';
+  current_fs.classList.remove('current');
+  current_fs.classList.add('outClass');
+   current_fs.style.display = 'none';
+ }
+
+  function clickHandler2 () {
+ // if(animating){ return false;}
+  //animating = true;
+  current_fs = this.parentNode;
+ // console.log(current_fs);
+  prev_fs = this.parentNode.previousElementSibling;
+  console.log(prev_fs);
+  progressbar[fieldsets.indexOf(current_fs)].classList.remove("active");
+  current_fs.classList.remove("current");
+  current_fs.style.display = 'none';
+  prev_fs.classList.add('current');
+  prev_fs.classList.remove('outClass');
+  prev_fs.style.display = 'block';
+ }
+
+ next.forEach(function(nexting){
+    nexting.addEventListener('click', clickHandler);
+ });
+
+ previous.forEach(function(prev){
+   prev.addEventListener('click', clickHandler2);
+ });
+
+
+    /*$(".next").click(function(){
+      if(animating) return false;
+      animating = true;
+
+      current_fs = $(this).parent();
+      next_fs = $(this).parent().next();
+
+      //activate next step on progressbar using the index of next_fs
+      $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+      //show the next fieldset
+      next_fs.show();
+      //hide the current fieldset with style
+      current_fs.animate({opacity: 0}, {
+      step: function(now, mx) {
+          //as the opacity of current_fs reduces to 0 - stored in "now"
+          //1. scale current_fs down to 80%
+          scale = 1 - (1 - now) * 0.2;
+    console.log(now);
+          //2. bring next_fs from the right(50%)
+          left = (now * 50)+"%";
+          //3. increase opacity of next_fs to 1 as it moves in
+          opacity = 1 - now;
+          current_fs.css({'transform': 'scale('+scale+')'});
+          next_fs.css({'left': left, 'opacity': opacity});
+        },
+        duration: 800,
+        complete: function(){
+          current_fs.hide();
+          animating = false;
+        }//,
+        //this comes from the custom easing plugin
+        //easing: 'easeInOutBack'
+      });
+    });
+
+    $(".previous").click(function(){
+      if(animating) return false;
+      animating = true;
+
+      current_fs = $(this).parent();
+      previous_fs = $(this).parent().prev();
+
+      //de-activate current step on progressbar
+      $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+      //show the previous fieldset
+      previous_fs.show();
+      //hide the current fieldset with style
+      current_fs.animate({opacity: 0}, {
+        step: function(now, mx) {
+          //as the opacity of current_fs reduces to 0 - stored in "now"
+          //1. scale previous_fs from 80% to 100%
+          scale = 0.8 + (1 - now) * 0.2;
+          //2. take current_fs to the right(50%) - from 0%
+          left = ((1-now) * 50)+"%";
+          //3. increase opacity of previous_fs to 1 as it moves in
+          opacity = 1 - now;
+          current_fs.css({'left': left});
+          previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+        },
+        duration: 800,
+        complete: function(){
+          current_fs.hide();
+          animating = false;
+        }//,
+        //this comes from the custom easing plugin
+        //easing: 'easeInOutBack'
+      });
+    });
+*/
+    $(".submit").click(function(){
+      return false;
+    })
+
+
+    </script>
+  </body>
+</html>
