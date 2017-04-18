@@ -1,0 +1,12 @@
+a{
+	text-decoration: none;
+	color: #222;
+}
+img{
+	cursor: pointer;
+}
+img:hover{
+	cursor: pointer;
+	opacity: 0.5;
+	animation: ease-in-out 5s;
+}
